@@ -1,0 +1,12 @@
+apiVersion: v1      # see https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.13/
+kind: Pod           # type of object that's defined in this file
+metadata:
+  name: pod-my-app   # the name displayed in the first column of 'kubectl get pods'
+  labels:
+    app: my-app  # this tag is added to help this object to link to the service object.
+spec:
+  containers:
+    - name: my-app     # name of the container that will reside in the pod
+      image: my-app:0.0.2      # using the official apache image from docker hub, along with a tag
+      ports:                # this bit is purely for informational purposes only and can be omitted.
+        - containerPort: 8080 

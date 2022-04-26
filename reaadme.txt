@@ -1,0 +1,4 @@
+aynı dockerda containerlar arası iletişim için network kurman gerekir.
+docker network create <network_name>
+
+docker run -d -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=root --net test-app -p 27017:27017 --name mongodb mongo:4.4.13

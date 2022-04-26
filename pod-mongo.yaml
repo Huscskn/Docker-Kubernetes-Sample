@@ -1,0 +1,13 @@
+apiVersion: v1      # see https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.13/
+kind: Pod           # type of object that's defined in this file
+metadata:
+  name: pod-mongodb   # the name displayed in the first column of 'kubectl get pods'
+  labels:
+    app: mongodb  # this tag is added to help this object to link to the service object.
+spec:
+  containers:
+    - name: mongodb     # name of the container that will reside in the pod
+      imagePullPolicy: Never
+      image: mongo:4.4.13      # using the official apache image from docker hub, along with a tag
+      ports:                # this bit is purely for informational purposes only and can be omitted.
+        - containerPort: 27017   # what port the container will be listening on

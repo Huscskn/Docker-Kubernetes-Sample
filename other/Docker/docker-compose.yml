@@ -1,0 +1,10 @@
+version: "3.1"  # optional since v1.27.0
+services:
+  node:
+    container_name: testing
+    build: .
+    ports:
+      - "3000:8080"
+    volumes:
+      - .:/usr/src/test
+      - /var/run/docker.sock:/var/run/docker.sock

@@ -1,0 +1,24 @@
+version: "3.1"  # optional since v1.27.0
+services:
+  node:
+    build: .
+    ports:
+      - "3000:8080"
+    volumes:
+      - .:/usr/src/block
+    depends_on:
+      - mongo
+    networks:
+      - block-app
+  mongo:
+    image: mongo:4.4.13
+    ports:
+      - "27017:27017"
+    networks:
+      - block-app
+networks:
+  block-app:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
